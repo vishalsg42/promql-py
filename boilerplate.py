@@ -1,8 +1,8 @@
 import http.server
-#from prometheus_client import start_http_server
+from prometheus_client import start_http_server
 
 APP_PORT = 8000
-#METRICS_PORT = 8001
+METRICS_PORT = 8001
 
 class HandleRequests(http.server.BaseHTTPRequestHandler):
 
@@ -15,6 +15,6 @@ class HandleRequests(http.server.BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     print(f"Running server on: {APP_PORT}")
-    #start_http_server(METRICS_PORT)
+    start_http_server(METRICS_PORT)
     server = http.server.HTTPServer(('localhost', APP_PORT), HandleRequests)
     server.serve_forever()
